@@ -186,26 +186,39 @@ public partial class Index
 
         try
         {
-            var contacts = await Microsoft.Maui.ApplicationModel.Communication.Contacts.Default.GetAllAsync();
-            List<ContactModel> models = [];
-            foreach (var contact in contacts)
+
+            var x = new Thread(async () =>
             {
-                ContactModel model = new()
+                var contacts = await Microsoft.Maui.ApplicationModel.Communication.Contacts.Default.GetAllAsync();
+                List<ContactModel> models = [];
+                foreach (var contact in contacts)
                 {
-                    Nombre = contact.DisplayName + contact.Id,
-                    Type = Types.Contacts.Enumerations.ContactTypes.None,
-                    Phones = contact.Phones.Select(t => new PhoneModel()
+                    ContactModel model = new()
                     {
-                        Number = t.PhoneNumber,
-                    }).ToList(),
-                    Mails = contact.Emails.Select(t => new MailModel()
-                    {
-                        Email = t.EmailAddress,
-                    }).ToList()
-                };
-                models.Add(model);
-            }
-            return models;
+                        Nombre = contact.DisplayName + contact.Id,
+                        Type = Types.Contacts.Enumerations.ContactTypes.None,
+                        Phones = contact.Phones.Select(t => new PhoneModel()
+                        {
+                            Number = t.PhoneNumber,
+                        }).ToList(),
+                        Mails = contact.Emails.Select(t => new MailModel()
+                        {
+                            Email = t.EmailAddress,
+                        }).ToList()
+                    };
+                    models.Add(model);
+                }
+
+                Contactos.AddRange(models);
+                try
+                {
+                    await Me.InvokeAsync(Me.StateHasChanged);
+                }
+                catch (Exception ex)
+                {
+                }
+            });
+            x.Start();
         }
         catch
         {
