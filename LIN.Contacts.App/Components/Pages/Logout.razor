@@ -1,0 +1,22 @@
+﻿@page "/logout"
+@inject NavigationManager nav
+
+<div class="flex h-screen items-center justify-center">
+    <CircleLoader />
+</div>
+
+
+@code{
+    protected override async void OnAfterRender(bool firstRender)
+    {
+        LIN.Access.Contacts.Session.CloseSession();
+        //Online.StaticHub.Leave();
+        Index.AreProjectLoaded = false;
+        Index.Contactos = new();
+        await Task.Delay(1000);
+        nav.NavigateTo("/login");
+        base.OnAfterRender(firstRender);
+    }
+
+  
+}
