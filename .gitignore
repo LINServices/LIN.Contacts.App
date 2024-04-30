@@ -399,3 +399,4 @@ FodyWeavers.xsd
 # JetBrains Rider
 *.sln.iml
 /LIN.Contacts/LIN.Contacts/wwwroot/css/Tailwind.css
+/LIN.Contacts.App/wwwroot/css/tailwind.css
