@@ -65,7 +65,7 @@ public partial class Login
     /// <summary>
     /// Sección actual.
     /// </summary>
-    private int Section { get; set; } = 0;
+    private int Section { get; set; } =3;
 
 
 
@@ -94,16 +94,46 @@ public partial class Login
     /// </summary>
     protected override async Task OnInitializedAsync()
     {
-        MauiProgram.Aa();
 
-        if (Access.Contacts.Session.IsOpen)
+        // Initializing.
+        _ = base.OnInitializedAsync();
+
+        if (Access.Auth.SessionAuth.IsOpen)
         {
             NavigationManager?.NavigateTo("/");
             return;
         }
 
-     
-        _ = base.OnInitializedAsync();
+
+        LIN.LocalDataBase.Data.UserDB database = new();
+
+        // Usuario
+        var user = await database.GetDefault();
+
+        // Si no existe
+        if (user == null)
+        {
+            UpdateSection(0);
+            return;
+        }
+
+
+        UpdateSection(3);
+
+        IsWithKey = false;
+        User = user.UserU;
+        Password = user.Password;
+
+        Start();
+
+
+
+
+        if (Access.Auth.SessionAuth.IsOpen)
+        {
+            NavigationManager?.NavigateTo("/");
+            return;
+        }
 
     }
 
@@ -210,6 +240,13 @@ public partial class Login
             case Responses.Success:
 
                 Online.Realtime.Start();
+
+                // Obtener local db.
+                LocalDataBase.Data.UserDB database = new();
+
+                // Guardar información.
+                await database.SaveUser(new() { ID = Session!.Account.Id, UserU = Session!.Account.Identity.Unique, Password = Password });
+
 
                 // Navegar.
                 NavigationManager?.NavigateTo("/");

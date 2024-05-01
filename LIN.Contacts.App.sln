@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LIN.Contacts.App", "LIN.Contacts.App\LIN.Contacts.App.csproj", "{8A554A6D-DE20-45AC-879D-672E747A0DEE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LIN.Contacts.App", "LIN.Contacts.App\LIN.Contacts.App.csproj", "{8A554A6D-DE20-45AC-879D-672E747A0DEE}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SILF.Script", "..\..\..\SILF\SILF\SILF.Script\SILF.Script.csproj", "{5B03A7B2-B423-4232-B4C7-F47F43403875}"
 EndProject
@@ -20,6 +20,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LIN.Emma.UI", "..\..\Components\LIN.Emma.UI\LIN.Emma.UI\LIN.Emma.UI.csproj", "{EEA0C7C4-3E5C-44DC-80A6-4147DA59B8AF}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LIN.Types.Cloud.Identity", "..\..\Tipos\LIN.Types.Cloud.Identity\LIN.Types.Cloud.Identity.csproj", "{3A22A516-D043-4E42-83BE-F525E5CEA0DF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LIN.LocalDataBase", "..\LIN\LIN.LocalDataBase\LIN.LocalDataBase.csproj", "{B8DCEAD7-CB10-4F27-B4B7-7E897DB273CC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -105,6 +107,14 @@ Global
 		{3A22A516-D043-4E42-83BE-F525E5CEA0DF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3A22A516-D043-4E42-83BE-F525E5CEA0DF}.Release|x86.ActiveCfg = Release|Any CPU
 		{3A22A516-D043-4E42-83BE-F525E5CEA0DF}.Release|x86.Build.0 = Release|Any CPU
+		{B8DCEAD7-CB10-4F27-B4B7-7E897DB273CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8DCEAD7-CB10-4F27-B4B7-7E897DB273CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8DCEAD7-CB10-4F27-B4B7-7E897DB273CC}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B8DCEAD7-CB10-4F27-B4B7-7E897DB273CC}.Debug|x86.Build.0 = Debug|Any CPU
+		{B8DCEAD7-CB10-4F27-B4B7-7E897DB273CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8DCEAD7-CB10-4F27-B4B7-7E897DB273CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8DCEAD7-CB10-4F27-B4B7-7E897DB273CC}.Release|x86.ActiveCfg = Release|Any CPU
+		{B8DCEAD7-CB10-4F27-B4B7-7E897DB273CC}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

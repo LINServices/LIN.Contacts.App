@@ -65,6 +65,7 @@
       <ProjectReference Include="..\..\..\Tipos\LIN.Types.Cloud.Identity\LIN.Types.Cloud.Identity.csproj" />
       <ProjectReference Include="..\..\..\Tipos\LIN.Types.Contacts\LIN.Types.Contacts.csproj" />
       <ProjectReference Include="..\..\..\Tipos\LIN.Types\LIN.Types.csproj" />
+      <ProjectReference Include="..\..\LIN\LIN.LocalDataBase\LIN.LocalDataBase.csproj" />
     </ItemGroup>
 
 </Project>

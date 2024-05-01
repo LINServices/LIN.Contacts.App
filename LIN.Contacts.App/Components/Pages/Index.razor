@@ -67,9 +67,10 @@
             @* Perfil *@
             <div class="mt-5 flex items-center justify-between">
 
-                <div class="flex items-center">
+                <div class="flex items-center gap-3">
 
                     @* Imagen del perfil *@
+                    <LIN.Contacts.App.Components.Layout.PopSession OnClick="Close" />
                     <div class="relative mr-3 inline-flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-gray-100 dark:bg-zinc-800">
                         <span class="text-xl font-medium text-gray-600 dark:text-gray-300">@Global.Utilities.Strings.GetInitials(LIN.Access.Contacts.Session.Instance.Account.Name ?? "")</span>
                     </div>

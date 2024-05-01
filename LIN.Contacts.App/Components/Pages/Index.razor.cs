@@ -328,6 +328,17 @@ public partial class Index
     }
 
 
+    async void Close()
+    {
+        var db = new LIN.LocalDataBase.Data.UserDB();
+        await db.DeleteUsers();
+
+        LIN.Access.Contacts.Session.CloseSession();
+
+        nav.NavigateTo("/login", true);
+    }
+
+
 
 
 
