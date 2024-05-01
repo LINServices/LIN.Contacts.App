@@ -195,7 +195,7 @@ public partial class Index
                 {
                     ContactModel model = new()
                     {
-                        Nombre = contact.DisplayName + contact.Id,
+                        Nombre = contact.DisplayName,
                         Type = Types.Contacts.Enumerations.ContactTypes.None,
                         Phones = contact.Phones.Select(t => new PhoneModel()
                         {

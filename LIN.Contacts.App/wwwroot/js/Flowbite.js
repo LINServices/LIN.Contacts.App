@@ -1,20 +1,20 @@
-﻿// @ts-check
-
-// Extensiones para flowbite
-
-
-// Abre un Drawer
-function ShowDrawer(id, ...idCloseBtn)
-{
+﻿// Abre un Drawer
+function ShowDrawer(id, dotnetHelper, ...idCloseBtn) {
 
     // Control
     const control = document.getElementById(id);
 
-    const closeButton = document.getElementById(idCloseBtn);
-
     const options = {
-        backdropClasses: 'bg-zinc-900/20 dark:bg-black/80 fixed inset-0 z-30'
+        placement: "bottom",
+        backdropClasses: 'bg-zinc-900/20 dark:bg-black/80 fixed inset-0 z-30',
+        onHide: () => {
+            dotnetHelper.invokeMethodAsync("OnHide");
+        },
+        onShow: () => {
+            dotnetHelper.invokeMethodAsync("OnShow");
+        }
     };
+
 
     const drawer = new Drawer(control, options);
 
@@ -26,25 +26,18 @@ function ShowDrawer(id, ...idCloseBtn)
 
             let closeButton = document.getElementById(idCloseBtn[i]);
 
-
             closeButton.addEventListener("click", () => {
 
                 drawer.hide();
 
             });
-        }
-        catch
-        {
+        } catch {
 
         }
 
     }
 
 }
-
-
-
-
 
 
 // Abre un Drawer
@@ -86,27 +79,15 @@ function ShowBottomDrawer(id, ...idCloseBtn) {
 
 }
 
-
-
-
-
-
-
-
 // Abre
-function ForceClick(id)
-{
+function ForceClick(id) {
 
     const control = document.getElementById(id);
     control.click();
 }
 
 
-
-
-
-function ShowPop(id, btn )
-{
+function ShowPop(id, btn) {
     // set the popover content element
     const $targetEl = document.getElementById(id);
 
@@ -135,10 +116,6 @@ function ShowPop(id, btn )
 }
 
 
-
-
-
-
 // Abre un
 
 // Abre
@@ -148,13 +125,12 @@ function ShowModal(id, ...idCloseBtn) {
     const control = document.getElementById(id);
 
 
-
     // options with default values
     const options = {
         placement: 'center',
         backdrop: 'dynamic',
         backdropClasses:
-            'bg-zinc-900/40 dark:bg-black/80 fixed inset-0 z-40',
+            'bg-zinc-900/50 dark:bg-black/80 fixed inset-0 z-40',
         closable: true,
         onHide: () => {
             console.log('modal is hidden');
@@ -167,7 +143,7 @@ function ShowModal(id, ...idCloseBtn) {
         },
     };
 
-  
+
     const drawer = new Modal(control, options);
 
     // show the drawer
@@ -185,25 +161,17 @@ function ShowModal(id, ...idCloseBtn) {
                 drawer.hide();
 
             });
-        }
-        catch
-        {
+        } catch {
 
         }
-       
+
     }
 
-   
 
 }
 
 
-
-
-
-
 function OpenDropDown(id, idOpen, ...idCloseBtn) {
-
 
 
     // set the target element that will be collapsed or expanded (eg. navbar menu)
@@ -231,7 +199,6 @@ function OpenDropDown(id, idOpen, ...idCloseBtn) {
     let collapse = new Dropdown($targetEl, $targetEl2, options);
 
 
-
     for (let i = 0; i < idCloseBtn.length; i++) {
 
         try {
@@ -243,9 +210,7 @@ function OpenDropDown(id, idOpen, ...idCloseBtn) {
                 collapse.hide();
 
             });
-        }
-        catch
-        {
+        } catch {
 
         }
 
@@ -256,18 +221,10 @@ function OpenDropDown(id, idOpen, ...idCloseBtn) {
     collapse.toggle();
 
 
-
 }
 
 
-
-
-
-
-
-
 function E() {
-
 
 
     // set the target element that will be collapsed or expanded (eg. navbar menu)
@@ -300,7 +257,6 @@ function E() {
     collapse.toggle();
 
 
-
 }
 
 
@@ -319,20 +275,41 @@ function I() {
 }
 
 
+function ShopPop(target, trigger) {
 
 
+    console.log('Target: ' + target);
+    console.log('Trigger: ' + trigger);
 
-function enviarCorreo(mail) {
-    var mailtoURL = "mailto:" + mail;
+    // set the popover content element
+    const $targetEl = document.getElementById(target);
 
-    // Abrir el cliente de correo predeterminado del usuario
-    window.location.href = mailtoURL;
+    // set the element that trigger the popover using hover or click
+    const $triggerEl = document.getElementById(trigger);
+
+    // options with default values
+    const options = {
+        placement: 'bottom',
+        triggerType: 'hover',
+        offset: 10,
+        onHide: () => {
+            console.log('popover is shown');
+        },
+        onShow: () => {
+            console.log('popover is hidden');
+        },
+        onToggle: () => {
+            console.log('popover is toggled');
+        }
+    };
+
+
+    const popover = new Popover($targetEl, $triggerEl, options);
+
+
 }
 
 
-function llamar(phone) {
-    var mailtoURL = "tel:" + phone;
-
-    // Abrir el cliente de correo predeterminado del usuario
-    window.location.href = mailtoURL;
+function BackLast() {
+    history.back();
 }

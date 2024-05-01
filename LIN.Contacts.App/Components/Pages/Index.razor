@@ -71,10 +71,7 @@
 
                     @* Imagen del perfil *@
                     <LIN.Contacts.App.Components.Layout.PopSession OnClick="Close" />
-                    <div class="relative mr-3 inline-flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-gray-100 dark:bg-zinc-800">
-                        <span class="text-xl font-medium text-gray-600 dark:text-gray-300">@Global.Utilities.Strings.GetInitials(LIN.Access.Contacts.Session.Instance.Account.Name ?? "")</span>
-                    </div>
-
+                    
                     @* Nombre y conteo *@
                     <div>
                         <h1 class="text-lg font-semibold dark:text-zinc-300">@Session.Instance.Account.Name</h1>
