@@ -5,7 +5,7 @@ function ShowDrawer(id, dotnetHelper, ...idCloseBtn) {
     const control = document.getElementById(id);
 
     const options = {
-        placement: "bottom",
+        placement: "left",
         backdropClasses: 'bg-zinc-900/20 dark:bg-black/80 fixed inset-0 z-30',
         onHide: () => {
             dotnetHelper.invokeMethodAsync("OnHide");
