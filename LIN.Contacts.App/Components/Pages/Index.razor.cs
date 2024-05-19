@@ -189,34 +189,45 @@ public partial class Index
 
             var x = new Thread(async () =>
             {
-                var contacts = await Microsoft.Maui.ApplicationModel.Communication.Contacts.Default.GetAllAsync();
-                List<ContactModel> models = [];
-                foreach (var contact in contacts)
-                {
-                    ContactModel model = new()
-                    {
-                        Nombre = contact.DisplayName,
-                        Type = Types.Contacts.Enumerations.ContactTypes.None,
-                        Phones = contact.Phones.Select(t => new PhoneModel()
-                        {
-                            Number = t.PhoneNumber,
-                        }).ToList(),
-                        Mails = contact.Emails.Select(t => new MailModel()
-                        {
-                            Email = t.EmailAddress,
-                        }).ToList()
-                    };
-                    models.Add(model);
-                }
 
-                Contactos.AddRange(models);
                 try
                 {
-                    await Me.InvokeAsync(Me.StateHasChanged);
+                    var contacts = await Microsoft.Maui.ApplicationModel.Communication.Contacts.Default.GetAllAsync();
+                    List<ContactModel> models = [];
+                    foreach (var contact in contacts)
+                    {
+                        ContactModel model = new()
+                        {
+                            Nombre = contact.DisplayName,
+                            Type = Types.Contacts.Enumerations.ContactTypes.None,
+                            Phones = contact.Phones.Select(t => new PhoneModel()
+                            {
+                                Number = t.PhoneNumber,
+                            }).ToList(),
+                            Mails = contact.Emails.Select(t => new MailModel()
+                            {
+                                Email = t.EmailAddress,
+                            }).ToList()
+                        };
+                        models.Add(model);
+                    }
+
+                    Contactos.AddRange(models);
+                    try
+                    {
+                        await Me.InvokeAsync(Me.StateHasChanged);
+                    }
+                    catch (Exception ex)
+                    {
+                    }
+
                 }
-                catch (Exception ex)
+                catch
                 {
+
                 }
+
+
             });
             x.Start();
         }
