@@ -57,8 +57,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\..\AccesoAPI\LIN.Access.Auth\LIN.Access.Auth.csproj" />
-      <ProjectReference Include="..\..\..\AccesoAPI\LIN.Access.Contacts\LIN.Access.Contacts.csproj" />
       <ProjectReference Include="..\..\..\Components\LIN.Contacts.Shared\LIN.Contacts.Shared.csproj" />
       <ProjectReference Include="..\..\..\Components\LIN.Emma.UI\LIN.Emma.UI\LIN.Emma.UI.csproj" />
       <ProjectReference Include="..\..\LIN\LIN.LocalDataBase\LIN.LocalDataBase.csproj" />
