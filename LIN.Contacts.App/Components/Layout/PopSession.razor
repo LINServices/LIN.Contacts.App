@@ -38,8 +38,8 @@
 @* Dropdown Open *@
 @if (string.IsNullOrWhiteSpace(Img64))
 {
-    <div id="img-prof-@Key" class="relative inline-flex h-12 w-12 items-center justify-center overflow-hidden rounded-full border bg-zinc-200 dark:bg-zinc-800 dark:border-zinc-600">
-        <span class="text-xl font-medium text-gray-600 dark:text-zinc-300">@Global.Utilities.Strings.GetInitials(LIN.Access.Contacts.Session.Instance.Account.Name)</span>
+    <div id="img-prof-@Key" class="bg-[#f2f1f6] relative inline-flex h-10 w-10 items-center justify-center overflow-hidden rounded-full border dark:bg-zinc-800 dark:border-zinc-600">
+        <span class="text-base font-medium text-gray-600 dark:text-zinc-300">@Global.Utilities.Strings.GetInitials(LIN.Access.Contacts.Session.Instance.Account.Name)</span>
     </div>
 }
 else

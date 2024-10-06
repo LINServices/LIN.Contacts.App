@@ -23,6 +23,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LIN.Types.Cloud.Identity", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LIN.LocalDataBase", "..\LIN\LIN.LocalDataBase\LIN.LocalDataBase.csproj", "{B8DCEAD7-CB10-4F27-B4B7-7E897DB273CC}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LIN.Access.Search", "..\..\AccesoAPI\LIN.Access.Search\LIN.Access.Search.csproj", "{622E4A6B-E9A0-4ED1-BE4A-4C78A122C6A0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -115,6 +117,14 @@ Global
 		{B8DCEAD7-CB10-4F27-B4B7-7E897DB273CC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B8DCEAD7-CB10-4F27-B4B7-7E897DB273CC}.Release|x86.ActiveCfg = Release|Any CPU
 		{B8DCEAD7-CB10-4F27-B4B7-7E897DB273CC}.Release|x86.Build.0 = Release|Any CPU
+		{622E4A6B-E9A0-4ED1-BE4A-4C78A122C6A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{622E4A6B-E9A0-4ED1-BE4A-4C78A122C6A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{622E4A6B-E9A0-4ED1-BE4A-4C78A122C6A0}.Debug|x86.ActiveCfg = Debug|x86
+		{622E4A6B-E9A0-4ED1-BE4A-4C78A122C6A0}.Debug|x86.Build.0 = Debug|x86
+		{622E4A6B-E9A0-4ED1-BE4A-4C78A122C6A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{622E4A6B-E9A0-4ED1-BE4A-4C78A122C6A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{622E4A6B-E9A0-4ED1-BE4A-4C78A122C6A0}.Release|x86.ActiveCfg = Release|x86
+		{622E4A6B-E9A0-4ED1-BE4A-4C78A122C6A0}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

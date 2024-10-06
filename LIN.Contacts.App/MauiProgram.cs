@@ -2,6 +2,8 @@
 using Android.Views;
 #endif
 using Microsoft.Extensions.Logging;
+using LIN.Access.Auth;
+using LIN.Access.Contacts;
 
 namespace LIN.Contacts.App
 {
@@ -18,15 +20,13 @@ namespace LIN.Contacts.App
                 });
 
             builder.Services.AddMauiBlazorWebView();
+            builder.Services.AddAuthenticationService();
+            builder.Services.AddContactsService();
 
 #if DEBUG
     		builder.Services.AddBlazorWebViewDeveloperTools();
     		builder.Logging.AddDebug();
 #endif
-
-            LIN.Access.Auth.Build.Init();
-            LIN.Access.Contacts.Build.Init();
-
             return builder.Build();
         }
 
