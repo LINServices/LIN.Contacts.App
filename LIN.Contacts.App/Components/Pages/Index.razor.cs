@@ -98,7 +98,7 @@ public partial class Index
         if (string.IsNullOrWhiteSpace(Pattern))
         {
             // Lista original.
-            RenderList = Contactos.GroupBy(contact => contact.Nombre[0]).ToList();
+            RenderList = Contactos.GroupBy(contact => contact.Name[0]).ToList();
 
             // Estado.
             StateHasChanged();
@@ -112,10 +112,10 @@ public partial class Index
 
         // Consulta.
         RenderList = (from contacto in Contactos
-                      where contacto.Nombre.Contains(pattern, StringComparison.CurrentCultureIgnoreCase)
+                      where contacto.Name.Contains(pattern, StringComparison.CurrentCultureIgnoreCase)
                       || contacto.Mails.Where(T => T.Email.ToLower().Contains(pattern)).Any()
                       || contacto.Phones.Where(T => T.Number.ToLower().Contains(pattern)).Any()
-                      select contacto).GroupBy(t => t.Nombre[0]).ToList();
+                      select contacto).GroupBy(t => t.Name[0]).ToList();
 
         // Nuevo estado.
         StateHasChanged();
@@ -170,13 +170,13 @@ public partial class Index
         {
             AreProjectLoaded = true;
             Contactos = result.Models;
-            RenderList = result.Models.GroupBy(t => t.Nombre[0].ToString().ToUpper()[0]).ToList();
+            RenderList = result.Models.GroupBy(t => t.Name[0].ToString().ToUpper()[0]).ToList();
             StateHasChanged();
         }
 
         var local = await GetLocalContacts();
         Contactos.AddRange(local);
-        RenderList = result.Models.GroupBy(t => t.Nombre[0].ToString().ToUpper()[0]).ToList();
+        RenderList = result.Models.GroupBy(t => t.Name[0].ToString().ToUpper()[0]).ToList();
         StateHasChanged();
 
     }
@@ -198,7 +198,7 @@ public partial class Index
                     {
                         ContactModel model = new()
                         {
-                            Nombre = contact.DisplayName,
+                            Name = contact.DisplayName,
                             Type = Types.Contacts.Enumerations.ContactTypes.None,
                             Phones = contact.Phones.Select(t => new PhoneModel()
                             {
@@ -255,7 +255,7 @@ public partial class Index
                 return;
 
             Contactos.Add(model);
-            RenderList = Contactos.GroupBy(t => t.Nombre[0].ToString().ToUpper()[0]).ToList();
+            RenderList = Contactos.GroupBy(t => t.Name[0].ToString().ToUpper()[0]).ToList();
             StateHasChanged();
         });
     }
@@ -296,7 +296,7 @@ public partial class Index
         this.InvokeAsync(() =>
         {
 
-            RenderList = Contactos.GroupBy(t => t.Nombre[0].ToString().ToUpper()[0]).ToList();
+            RenderList = Contactos.GroupBy(t => t.Name[0].ToString().ToUpper()[0]).ToList();
             StateHasChanged();
 
         });
@@ -333,7 +333,7 @@ public partial class Index
         }
 
 
-        RenderList = Contactos.Where(t => t.Type == type).GroupBy(t => t.Nombre[0].ToString().ToUpper()[0]).ToList();
+        RenderList = Contactos.Where(t => t.Type == type).GroupBy(t => t.Name[0].ToString().ToUpper()[0]).ToList();
         StateHasChanged();
 
     }

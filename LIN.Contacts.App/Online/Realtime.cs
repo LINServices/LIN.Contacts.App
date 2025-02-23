@@ -132,7 +132,7 @@ internal class Realtime
 
             get.Phones = contact.Model.Phones;
             get.Mails = contact.Model.Mails;
-            get.Nombre = contact.Model.Nombre;
+            get.Name = contact.Model.Name;
             get.Picture = contact.Model.Picture;
             get.Type = contact.Model.Type;
             get.Birthday = contact.Model.Birthday;
